@@ -11,16 +11,20 @@
   },
   "type": "module",
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "marko": "^6.0.0-next"
   },
   "devDependencies": {
     "@marko/run": "^0.6.1",
     "@marko/run-adapter-node": "^1.0.1",
-    "@marko/runtime-tags": "^0.3.53",
     "@marko/vite": "^5.0.14",
     "@types/express": "^5.0.0",
-    "marko": "^5.37.20",
     "vite": "^6.2.2"
+  },
+  "overrides": {
+    "@marko/run": {
+      "marko": "^6.0.0-next"
+    }
   },
   "imports": {
     "#src/": "./src/"
