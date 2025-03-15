@@ -1,0 +1,4 @@
+*.log
+.marko-run
+dist
+node_modules

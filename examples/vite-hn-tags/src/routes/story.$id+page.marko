@@ -1,0 +1,28 @@
+import { getStory } from "#src/api/index.ts";
+
+<layout>
+  <main.item-view>
+    <await|story|=getStory($global.params.id)>
+      <header.item-view-header>
+        <h1><a href=story.url target="_blank">${story.title}</a></h1>
+        <p.meta>
+          ${story.points} points | by
+          <a href=`/user/${story.user}`>${story.user}</a>
+          ${" "} ${story.time_ago}
+        </p>
+      </header>
+      <section.item-view-comments>
+        <p.item-view-comments-header>
+          ${story.comments_count
+            ? `${story.comments_count} comments`
+            : "No comments yet."}
+        </p>
+        <ul.comment-children>
+          <for|comment| of=story.comments>
+            <comment comment=comment/>
+          </for>
+        </ul>
+      </section>
+    </await>
+  </main>
+</layout>

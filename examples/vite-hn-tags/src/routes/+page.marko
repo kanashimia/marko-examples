@@ -1,0 +1,47 @@
+import { getStories } from "#src/api/index.ts";
+
+<const/{ searchParams }=$global.url/>
+<const/stories=(searchParams.get("stories") ?? "top")/>
+<const/page=Number(searchParams.get("page") ?? 1)/>
+
+<layout>
+  <div class="news-view">
+    <div class="news-list-nav">
+      <if=(page > 1)>
+        <a
+          class="page-link"
+          aria-label="Previous Page"
+          href=`?stories=${stories}&page=${page - 1}`
+        >
+          < prev
+        </a>
+      </if>
+      <else>
+        <span aria-hidden="true" class="page-link disabled">
+          < prev
+        </span>
+      </else>
+
+      <span>page ${page}</span>
+
+      <a
+        class="page-link"
+        aria-label="Next Page"
+        href=`?stories=${stories}&page=${page + 1}`
+      >
+        more >
+      </a>
+    </div>
+    <try>
+      <await|storyList|=getStories(stories || "top", page)>
+        <main class="news-list">
+          <ul>
+            <for|story| of=storyList>
+              <story story=story/>
+            </for>
+          </ul>
+        </main>
+      </await>
+    </try>
+  </div>
+</layout>

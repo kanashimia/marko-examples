@@ -1,0 +1,11 @@
+<let /isOpen = true/>
+<const /toggle () {
+  isOpen = !isOpen;
+}/>
+
+<div class=["toggle", { open: isOpen }]>
+  <a onClick=toggle>${isOpen ? "[-]" : "[+] comments collapsed"}</a>
+</div>
+<ul.comment-children style={ display: isOpen ? "auto" : "none" }>
+  <${input.content}/>
+</ul>

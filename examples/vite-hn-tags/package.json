@@ -1,0 +1,33 @@
+{
+  "name": "marko-6-marko-run-hackernews-example",
+  "description": "Hacker News demo with Marko 6 and Marko Run",
+  "version": "1.0.0",
+  "main": "dist/index.mjs",
+  "private": true,
+  "scripts": {
+    "build": "marko-run build",
+    "dev": "marko-run dev",
+    "preview": "marko-run preview"
+  },
+  "type": "module",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@marko/run": "^0.6.1",
+    "@marko/run-adapter-node": "^1.0.1",
+    "@marko/runtime-tags": "^0.3.53",
+    "@marko/vite": "^5.0.14",
+    "@types/express": "^5.0.0",
+    "marko": "^5.37.20",
+    "vite": "^6.2.2"
+  },
+  "imports": {
+    "#src/": "./src/"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
